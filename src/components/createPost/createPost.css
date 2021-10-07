@@ -1,0 +1,13 @@
+.heading {
+  background-color: #f7f6f9;
+  padding: 0.4em 0.5em;
+}
+
+.draw img {
+  width: 14px;
+}
+
+.postTitle {
+  font-weight: 600;
+  margin: 0 0.8em;
+}

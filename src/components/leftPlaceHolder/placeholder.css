@@ -1,0 +1,26 @@
+.withAvatar {
+  display: flex;
+  align-items: center;
+  margin: 1em 0;
+}
+
+.avatar {
+  width: 35px;
+  min-width: 35px;
+  height: 35px;
+  background-color: rgb(211, 211, 211);
+  border-radius: 50%;
+}
+
+.avatarContent {
+  width: 100%;
+  background-color: rgb(211, 211, 211);
+  height: 32px;
+  border-radius: 6px;
+  margin-left: 1em;
+}
+
+.contentOnly {
+  width: 100%;
+  background-color: rgb(211, 211, 211);
+}
