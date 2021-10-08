@@ -23,4 +23,5 @@
 .contentOnly {
   width: 100%;
   background-color: rgb(211, 211, 211);
+  border-radius: 6px;
 }

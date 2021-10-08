@@ -1,6 +1,13 @@
+.postContainer {
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid #f2f2f2;
+}
+
 .heading {
   background-color: #f7f6f9;
   padding: 0.4em 0.5em;
+  border-bottom: 2px solid #f2f2f2;
 }
 
 .draw img {
@@ -10,4 +17,89 @@
 .postTitle {
   font-weight: 600;
   margin: 0 0.8em;
+}
+
+.inputbutton {
+  background: #3b5998;
+  color: white;
+  padding: 2px 18px 3px 18px;
+  border-top: 1px white solid;
+  border-left: 1px white solid;
+  border-right: 1px #000033 solid;
+  border-bottom: 1px #000033 solid;
+}
+
+.gif {
+  background-color: #f4f9fa;
+  border-radius: 8px;
+  padding: 6px 10px;
+  margin: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.gif:hover {
+  background-color: #eeeeee;
+}
+
+.gifTag {
+  font-size: 0.7em;
+  text-transform: uppercase;
+  font-weight: 800;
+  color: white;
+  background-color: #a294c5;
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+.gifText {
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-left: 0.8em;
+}
+
+.footer {
+  display: flex;
+  justify-content: end;
+  background-color: #f4f9fa;
+  padding: 0.4em 0.5em;
+  border-top: 2px solid #f2f2f2;
+}
+
+.profile {
+  padding-left: 10px;
+}
+
+.profile img {
+  object-fit: cover;
+  max-width: 100%;
+  object-position: center;
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  border-radius: 50%;
+  border: 1px solid #f2f2f2;
+}
+
+.userInteraction {
+  display: flex;
+  margin: 0.6em 0;
+}
+
+.writePost {
+  width: calc(90% - 10px);
+  max-width: calc(90% - 10px);
+}
+
+.writePost textarea {
+  border: 0;
+  margin-left: 0.8em;
+  line-height: 28px;
+  width: 100%;
+}
+
+textarea:focus,
+input:focus {
+  outline: none;
 }
