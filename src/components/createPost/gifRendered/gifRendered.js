@@ -11,7 +11,7 @@ const GifRendered = ({ select }) => {
   const debouncedSearchTerm = useDebounce(search, 1000);
 
   const fetchGif = async () => {
-    const response = await axios.get("http://api.giphy.com/v1/gifs/trending", {
+    const response = await axios.get("https://api.giphy.com/v1/gifs/trending", {
       params: {
         api_key: "Rr6XJXDmFfDfiqTHoptbSVVmf8lzQ1Jc",
       },
@@ -24,7 +24,7 @@ const GifRendered = ({ select }) => {
   };
 
   const searchGif = async (search) => {
-    const response = await axios.get("http://api.giphy.com/v1/gifs/search", {
+    const response = await axios.get("https://api.giphy.com/v1/gifs/search", {
       params: {
         q: search,
         api_key: "Rr6XJXDmFfDfiqTHoptbSVVmf8lzQ1Jc",
