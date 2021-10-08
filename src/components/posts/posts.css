@@ -1,0 +1,64 @@
+.post {
+  border: 1px solid #f2f2f2;
+  margin: 14px 0;
+  border-radius: 6px;
+  padding: 12px 8px;
+}
+
+.header {
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.postAvatar {
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  min-height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.postAvatar img {
+  max-width: 100%;
+  object-fit: cover;
+  object-position: center;
+  height: 100%;
+}
+
+.username {
+  font-size: 0.9em;
+  font-weight: 600;
+  color: #375998;
+}
+
+.time {
+  font-size: 0.6em;
+  font-weight: 500;
+  color: gray;
+}
+
+.accountDetails {
+  margin-left: 0.6em;
+  line-height: 16px;
+}
+
+.postImage {
+  position: relative;
+  overflow: hidden;
+  max-width: 100%;
+  border-radius: 4px;
+}
+
+.postImage img {
+  object-fit: cover;
+  max-width: 100%;
+  max-height: 100%;
+  margin-top: 12px;
+  border-radius: 4px;
+}
+
+.postDescription {
+  margin: 12px 0 0 0;
+}

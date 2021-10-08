@@ -3,6 +3,9 @@ import "./createPost.css";
 import Popover from "react-bootstrap/Popover";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import GifRendered from "./gifRendered/gifRendered";
+import Posts from "../posts/posts";
+import { constantPosts } from "../constants/constantPost";
+
 const UpdatingPopover = React.forwardRef(
   ({ popper, children, show: _, ...props }, ref) => {
     return (
@@ -61,6 +64,10 @@ const CreatePost = () => {
           </div>
         </div>
       </div>
+
+      {/* Posts are here */}
+
+      <Posts data={constantPosts} />
     </>
   );
 };
