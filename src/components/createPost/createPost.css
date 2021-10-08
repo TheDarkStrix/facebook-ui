@@ -103,3 +103,20 @@ textarea:focus,
 input:focus {
   outline: none;
 }
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 30px;
+  min-width: 30px;
+  min-height: 30px;
+  cursor: pointer;
+  height: 30px;
+  background: rgba(255, 255, 255, 0.66);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  font-weight: 700;
+}

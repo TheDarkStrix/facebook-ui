@@ -20,6 +20,7 @@ const CreatePost = () => {
   const [posts, setPosts] = useState(constantPosts);
   const [postText, setPostText] = useState("");
   const [gifStore, setGifStore] = useState(null);
+  const [showToolTip, setShowToolTip] = useState(false);
 
   const resetValues = () => {
     setGifStore(null);
@@ -27,7 +28,7 @@ const CreatePost = () => {
   };
 
   const createNewPost = () => {
-    if (postText != "") {
+    if (postText != "" || gifStore != null) {
       const post = generateNewPost();
       setPosts([post, ...posts]);
       resetValues();
@@ -72,7 +73,11 @@ const CreatePost = () => {
 
   const selectGif = (gif) => {
     setGifStore(gif);
-    const post = generateNewPost();
+    setShowToolTip(false);
+  };
+
+  const removeGif = () => {
+    setGifStore(null);
   };
 
   return (
@@ -100,19 +105,33 @@ const CreatePost = () => {
             />
           </div>
         </div>
+        {gifStore ? (
+          <div className="position-relative">
+            <div className="close" onClick={() => removeGif()}>
+              &#10006;
+            </div>
+            <img src={gifStore} alt="gif_preview" className="gifPreview" />
+          </div>
+        ) : (
+          ""
+        )}
         <div className="row">
           <div className="col-md-6">
             <div className="position-relative">
               <OverlayTrigger
                 trigger="click"
                 placement="bottom"
+                show={showToolTip}
                 overlay={
                   <UpdatingPopover id="popover-contained">
                     <GifRendered select={selectGif} />
                   </UpdatingPopover>
                 }
               >
-                <div className="gif">
+                <div
+                  className="gif"
+                  onClick={() => setShowToolTip((prev) => !prev)}
+                >
                   <span className="gifTag">GIF</span>
                   <span className="gifText">GIF</span>
                 </div>

@@ -17,6 +17,7 @@ const GifRendered = ({ select }) => {
       },
     });
     if (response.data) {
+      console.log(response.data.data);
       setGifs(response.data.data);
       setLoading(false);
     }
@@ -84,7 +85,11 @@ const GifRendered = ({ select }) => {
                     <li
                       key={data.id}
                       className="gifList"
-                      onClick={() => handleGifSelect(data.images.preview_gif.url)}
+                      onClick={() =>
+                        handleGifSelect(
+                          data.images.fixed_height_downsampled.url
+                        )
+                      }
                     >
                       <img src={data.images.preview_gif.url} alt={data.title} />
                     </li>
