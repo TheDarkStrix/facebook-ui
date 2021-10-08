@@ -1,0 +1,10 @@
+.navbarContainer {
+  height: 40px;
+  background: #4067b3 !important;
+  text-align: center;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+}

@@ -1,20 +1,29 @@
 import "./placeholder.css";
 
-const LeftPlaceHolder = () => {
+const LeftPlaceHolder = ({ reverse }) => {
   return (
-    <>
-      <div className="withAvatar">
-        <div className="avatar"></div>
-        <div className="avatarContent"></div>
-      </div>
+    <div className="sticky-top">
+      <div
+        className={[
+          "h-100 d-flex",
+          reverse ? "flex-column-reverse" : "flex-column",
+        ].join(" ")}
+      >
+        <div className="withAvatar">
+          <div className="avatar"></div>
+          <div className="avatarContent"></div>
+        </div>
 
-      <div className="withAvatar">
-        <div className="avatar"></div>
-        <div className="avatarContent"></div>
-      </div>
+        <div className="withAvatar">
+          <div className="avatar"></div>
+          <div className="avatarContent"></div>
+        </div>
 
-      <div className="contentOnly h-25"></div>
-    </>
+        <div
+          className={["contentOnly ht-250", reverse ? "mt" : ""].join(" ")}
+        ></div>
+      </div>
+    </div>
   );
 };
 

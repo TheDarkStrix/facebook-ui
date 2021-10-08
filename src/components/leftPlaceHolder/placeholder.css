@@ -25,3 +25,11 @@
   background-color: rgb(211, 211, 211);
   border-radius: 6px;
 }
+
+.ht-250 {
+  height: 250px;
+}
+
+.mt {
+  margin-top: 1em;
+}
