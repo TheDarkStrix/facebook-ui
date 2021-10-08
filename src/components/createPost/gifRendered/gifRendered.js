@@ -4,7 +4,7 @@ import axios from "axios";
 import Loading from "./loading/loading";
 import useDebounce from "./use-debounce";
 
-const GifRendered = () => {
+const GifRendered = ({ select }) => {
   const [gifs, setGifs] = useState(null);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState(null);
@@ -37,6 +37,10 @@ const GifRendered = () => {
 
   const handleSearch = (e) => {
     setSearch(e.target.value);
+  };
+
+  const handleGifSelect = (gif) => {
+    select(gif);
   };
 
   useEffect(
@@ -77,7 +81,11 @@ const GifRendered = () => {
               <div>
                 <ul className="gifList">
                   {gifs.map((data) => (
-                    <li key={data.id}>
+                    <li
+                      key={data.id}
+                      className="gifList"
+                      onClick={() => handleGifSelect(data.images.preview_gif.url)}
+                    >
                       <img src={data.images.preview_gif.url} alt={data.title} />
                     </li>
                   ))}

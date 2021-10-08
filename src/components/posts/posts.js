@@ -21,9 +21,13 @@ const Posts = ({ data }) => {
           ) : (
             ""
           )}
-          <div className="postImage">
-            <img src={data.image} alt="postImage" />
-          </div>
+          {data.image != "" ? (
+            <div className="postImage">
+              <img src={data.image} alt="postImage" />
+            </div>
+          ) : (
+            ""
+          )}
         </div>
       ))}
     </>

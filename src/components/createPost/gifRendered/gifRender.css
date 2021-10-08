@@ -40,3 +40,7 @@
   margin: 10px 6px;
   padding: 4px 4px;
 }
+
+.gifList {
+  cursor: pointer;
+}

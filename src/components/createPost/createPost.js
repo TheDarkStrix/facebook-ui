@@ -1,4 +1,4 @@
-import React, { forwardRef } from "react";
+import React, { forwardRef, useState } from "react";
 import "./createPost.css";
 import Popover from "react-bootstrap/Popover";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
@@ -17,6 +17,64 @@ const UpdatingPopover = React.forwardRef(
 );
 
 const CreatePost = () => {
+  const [posts, setPosts] = useState(constantPosts);
+  const [postText, setPostText] = useState("");
+  const [gifStore, setGifStore] = useState(null);
+
+  const resetValues = () => {
+    setGifStore(null);
+    setPostText("");
+  };
+
+  const createNewPost = () => {
+    if (postText != "") {
+      const post = generateNewPost();
+      setPosts([post, ...posts]);
+      resetValues();
+    }
+  };
+
+  const handlePostText = (e) => {
+    setPostText(e.target.value);
+  };
+
+  const generateUUID = () => {
+    let u =
+      Date.now().toString(16) + Math.random().toString(16) + "0".repeat(16);
+    let guid = [
+      u.substr(0, 8),
+      u.substr(8, 4),
+      "4000-8" + u.substr(13, 3),
+      u.substr(16, 12),
+    ].join("-");
+    return guid;
+  };
+
+  const liveData = (type) => {
+    const d = new Date();
+    if (type === "date")
+      return `${d.toLocaleString("default", {
+        month: "short",
+      })} ${d.getDate()}`;
+    if (type === "time") return `${d.getHours()}:${d.getMinutes()}`;
+  };
+
+  const generateNewPost = () => {
+    return {
+      username: "DC",
+      image: gifStore != null ? gifStore : "",
+      description: postText != "" ? postText : "",
+      time: liveData("time"),
+      date: liveData("date"),
+      id: generateUUID(),
+    };
+  };
+
+  const selectGif = (gif) => {
+    setGifStore(gif);
+    const post = generateNewPost();
+  };
+
   return (
     <>
       <div className="postContainer">
@@ -35,7 +93,11 @@ const CreatePost = () => {
             </div>
           </div>
           <div className="writePost">
-            <textarea placeholder="Write something here ..." />
+            <textarea
+              value={postText}
+              placeholder="Write something here ..."
+              onChange={handlePostText}
+            />
           </div>
         </div>
         <div className="row">
@@ -46,7 +108,7 @@ const CreatePost = () => {
                 placement="bottom"
                 overlay={
                   <UpdatingPopover id="popover-contained">
-                    <GifRendered />
+                    <GifRendered select={selectGif} />
                   </UpdatingPopover>
                 }
               >
@@ -60,14 +122,16 @@ const CreatePost = () => {
         </div>
         <div className="footer">
           <div>
-            <button className="inputbutton">Post</button>
+            <button className="inputbutton" onClick={() => createNewPost()}>
+              Post
+            </button>
           </div>
         </div>
       </div>
 
       {/* Posts are here */}
 
-      <Posts data={constantPosts} />
+      <Posts data={posts} />
     </>
   );
 };
