@@ -34,3 +34,9 @@
   object-fit: cover;
   object-position: center;
 }
+
+.searchContainer input {
+  width: calc(100% - 12px);
+  margin: 10px 6px;
+  padding: 4px 4px;
+}
