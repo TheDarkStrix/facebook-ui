@@ -1,4 +1,17 @@
+import React, { forwardRef } from "react";
 import "./createPost.css";
+import Popover from "react-bootstrap/Popover";
+import OverlayTrigger from "react-bootstrap/OverlayTrigger";
+import GifRendered from "./gifRendered/gifRendered";
+const UpdatingPopover = React.forwardRef(
+  ({ popper, children, show: _, ...props }, ref) => {
+    return (
+      <Popover ref={ref} body {...props}>
+        {children}
+      </Popover>
+    );
+  }
+);
 
 const CreatePost = () => {
   return (
@@ -24,9 +37,21 @@ const CreatePost = () => {
         </div>
         <div className="row">
           <div className="col-md-6">
-            <div className="gif">
-              <span className="gifTag">GIF</span>
-              <span className="gifText">GIF</span>
+            <div className="position-relative">
+              <OverlayTrigger
+                trigger="click"
+                placement="bottom"
+                overlay={
+                  <UpdatingPopover id="popover-contained">
+                    <GifRendered />
+                  </UpdatingPopover>
+                }
+              >
+                <div className="gif">
+                  <span className="gifTag">GIF</span>
+                  <span className="gifText">GIF</span>
+                </div>
+              </OverlayTrigger>
             </div>
           </div>
         </div>
